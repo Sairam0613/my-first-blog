@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sairam's blog</title>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}">
+                    {% include './icons/icons8-plus.svg' %}
+                </a>
+            {% endif %}
+        </div>
+        <header class="page_header">
+            <h1><a href="/">Sairam's Blog</a> </h1>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
